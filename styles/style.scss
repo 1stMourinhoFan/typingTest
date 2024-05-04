@@ -1,0 +1,141 @@
+@import "reset.scss";
+
+body {
+  background-color: #e5e6e1;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 400px 1.5fr;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.typing {
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 5px;
+  max-width: 900px;
+  grid-row-start: 2;
+  display: grid;
+  grid-template-rows: 1fr 1.5fr;
+
+  .typing__info {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    .typing__title {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 12px 8px;
+      grid-column: span 2;
+    }
+
+    .typing__language {
+      border: 1px solid black;
+      border-radius: 5px;
+
+      padding: 12px 8px;
+      grid-column: span 2;
+      grid-area: 2 / 1 / 2 / 3;
+    }
+
+    .typing__history {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 12px 8px;
+      grid-column: span 4;
+    }
+
+    .typing__count {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 12px 8px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0px 10px;
+      grid-column: span 2;
+    }
+
+    .typing__moreinfo {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 12px 8px;
+      grid-row: span 4;
+      grid-column: span 4;
+    }
+
+    .typing__status {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 12px 8px;
+      grid-column: span 2;
+      display: flex;
+      justify-content: space-between;
+
+      .typing__status-text {
+      }
+
+      .typing__value {
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .typing__main {
+    border-top: 2px solid black;
+    display: flex;
+    padding: 35px 40px;
+    gap: 10px;
+    flex-direction: column;
+
+    .typing__author {
+      font-weight: bold;
+      font-size: small;
+      color: #87888a;
+      margin-bottom: 10px;
+    }
+
+    .typing__quotes {
+      font-weight: bold;
+      display: table;
+      padding: 0px;
+    }
+
+    .typing__none {
+      color: #87888a;
+    }
+
+    .typing__error {
+      color: red;
+    }
+
+    .typing__correct {
+      color: black;
+      font-weight: bold;
+    }
+
+    .typing__input {
+      font-size: 16px;
+      background-color: #f2f2f2;
+      padding: 0px;
+      resize: none;
+      font-weight: bold;
+      border: none;
+      outline: none;
+    }
+
+    #typing__bar {
+      width: 0;
+      min-height: 2px;
+      background-color: blue;
+      transition: width 0.3s ease; /* 애니메이션 효과를 추가합니다. */
+      margin-bottom: 10px;
+    }
+
+    .typing__next {
+      font-weight: bold;
+      color: #777878;
+    }
+  }
+}
