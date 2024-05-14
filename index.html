@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.scss" />
@@ -54,87 +55,9 @@
     </div>
   </body>
 
-  <script>
-    function updateProgressBar() {
-      var progressBar = document.getElementById("typing__bar");
-      var randomValue = Math.random() * 100; // 0에서 100 사이의 랜덤 값 생성
-      progressBar.style.width = randomValue + "%"; // 막대바의 길이를 업데이트
-    }
-
-    // 일정 시간 간격으로 막대바를 업데이트합니다. (예: 1초마다)
-    setInterval(updateProgressBar, 1000);
-  </script>
-
-  <script>
-    // textarea의 높이를 동적으로 조절하는 함수
-    function adjustTextareaHeight() {
-      var textarea = document.getElementById("dynamicTextarea");
-      textarea.style.height = "auto"; // 기존의 높이를 자동으로 조절하도록 설정합니다.
-      textarea.style.height = textarea.scrollHeight + "px"; // 실제로 계산된 높이를 적용합니다.
-    }
-
-    // textarea의 내용이 변경될 때마다 높이를 조절합니다.
-    document
-      .getElementById("dynamicTextarea")
-      .addEventListener("input", adjustTextareaHeight);
-  </script>
-
-  <script>
-    function fetchRandomQuote() {
-      fetch("data/maxim.json")
-        .then((response) => response.json())
-        .then((data) => {
-          let randomQuote;
-          // 랜덤하게 선택된 문장의 길이가 50을 넘으면 다시 선택
-          do {
-            const randomIndex = Math.floor(Math.random() * data.length);
-            randomQuote = data[randomIndex];
-          } while (randomQuote.message.length > 80);
-
-          document.getElementById("author").innerText = randomQuote.author;
-
-          const cleanedMessage = randomQuote.message.replace(
-            /[^가-힣\s,'".]/g,
-            ""
-          );
-
-          // 문자열을 span 태그로 분해하여 다시 조합
-          const messageContainer = document.getElementById("quote");
-          messageContainer.innerHTML = ""; // 이전 내용 초기화
-
-          const messageArray = cleanedMessage.split("");
-          messageArray.forEach((char) => {
-            const span = document.createElement("span");
-            span.textContent = char;
-            span.classList.add("typing__none");
-            messageContainer.appendChild(span);
-          });
-        })
-        .catch((error) => console.error("Error fetching data:", error));
-    }
-
-    // 초기에 한 번 실행하고, 길이가 50을 초과하는 경우에만 반복 실행
-    fetchRandomQuote();
-  </script>
-
-  <script>
-    // span 요소의 클래스를 가져와 배열에 저장하는 함수
-    function getSpanClasses() {
-      const spans = document.getElementById("quote").querySelectorAll("span"); // 모든 span 요소 가져오기
-      const classesArray = Array.from(spans).map((span) => span.innerText); // 각 span의 클래스를 배열로 변환하여 저장
-      console.log(classesArray); // 클래스 배열을 콘솔에 출력 (테스트용)
-      return classesArray;
-    }
-    // 페이지 로드될 때 span 클래스를 가져와 배열에 저장
-    window.addEventListener("load", getSpanClasses);
-  </script>
-  <script>
-    document
-      .getElementById("dynamicTextarea")
-      .addEventListener("input", function () {
-        const textareaValue = this.value.trim(); // textarea의 값을 가져옴
-        console.log(textareaValue.length);
-      });
-    // if()
-  </script>
+  <script src="sources/updateBar.js"></script>
+  <script src="sources/adjustTextHeight.js"></script>
+  <script src="sources/fetchRandomQuote.js"></script>
+  <!-- <script src="sources/splitToSpan.js"></script> -->
+  <script src="sources/checkText.js"></script>
 </html>
