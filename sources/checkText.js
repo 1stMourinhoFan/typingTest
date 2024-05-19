@@ -12,34 +12,7 @@ document
     const textareaValue = this.value; // textarea의 값을 가져옴
     const currentLength = textareaValue.length;
 
-    console.log(previousLength, currentLength);
-
-    // const innerTexts = Array.from(spans)
-    //   .map((span) => span.innerText)
-    //   .join("");
-    // console.log(innerTexts);
-    // const currentSpans = innerTexts
-    //   .split("")
-    //   .map(divideHangul)
-    //   .reduce((acc, v) => {
-    //     return (
-    //       acc +
-    //       (v.cho ? (v.cho || "") + (v.jung || "") + (v.jong || "") : v || "")
-    //     );
-    //   }, "");
-    // console.log(currentSpans);
-    // const currentText = textareaValue
-    //   .split("")
-    //   .map(divideHangul)
-    //   .reduce((acc, v) => {
-    //     return (
-    //       acc +
-    //       (v.cho ? (v.cho || "") + (v.jung || "") + (v.jong || "") : v || "")
-    //     );
-    //   }, "");
-    // console.log(currentText);
-
-    // 항상 currentLegnth 보다 뒤에 있는 span 태그는 typing__none 클래스여야 한다!
+    // 항상 currentLegnth 보다 뒤에 있는 span 태그는 typing__none 클래스여야 한다
     spans.forEach((span, index) => {
       if (index >= currentLength) {
         if (!span.classList.contains("typing__none")) {
@@ -50,23 +23,6 @@ document
           );
         }
       }
-      // else {
-      //   if (currentSpans !== null) {
-      //     if (currentText[index] === currentSpans[index]) {
-      //       updateClass(
-      //         span,
-      //         ["typing__none", "typing__error"],
-      //         "typing__correct"
-      //       );
-      //     } else if (currentText[index] !== currentSpans[index]) {
-      //       updateClass(
-      //         span,
-      //         ["typing__none", "typing__correct"],
-      //         "typing__error"
-      //       );
-      //     }
-      //   }
-      // }
     });
 
     const done =
@@ -101,6 +57,30 @@ document
     }
   });
 
+document
+  .getElementById("dynamicTextarea")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // 기본 동작 방식
+
+      const spans = document.getElementById("quote").querySelectorAll("span");
+      const textLength = spans.length;
+      const textareaValue = this.value;
+      const currentLength = textareaValue.length;
+      const done =
+        currentLength === textLength && previousLength === textLength;
+
+      if (done) {
+        checkValid(textareaValue, previousLength, currentLength);
+        this.value = textareaValue.trim();
+        this.value = "";
+        previousLength = 0;
+        fetchRandomQuote();
+        adjustTextareaHeight();
+      }
+    }
+  });
+
 function checkValid(textareaValue, previousLength, currentLength) {
   const checkTag = document
     .getElementById("quote")
@@ -108,7 +88,7 @@ function checkValid(textareaValue, previousLength, currentLength) {
   const checkText = checkTag.textContent;
   // console.log(checkTag, checkText);
   const curE = textareaValue[previousLength - 1];
-  const prevE = textareaValue[currentLength - 1];
+  // const prevE = textareaValue[currentLength - 1];
 
   // 지우는 걸로 다 지웠을때
   if (currentLength === 0) {
@@ -116,7 +96,7 @@ function checkValid(textareaValue, previousLength, currentLength) {
     updateClass(checkTag, ["typing__correct", "typing__error"], "typing__none");
   }
   // 입력 중일 때 확인
-  else if (previousLength < currentLength) {
+  else if (previousLength <= currentLength) {
     // console.log(previousLength, currentLength, checkText, curE);
     checkTag.classList.remove("typing__none");
     if (checkText === curE) {
