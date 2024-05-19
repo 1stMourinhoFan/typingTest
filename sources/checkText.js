@@ -24,7 +24,6 @@ document
         }
       }
     });
-
     const done =
       currentLength - 1 === textLength && previousLength === textLength;
     // 첫 if 문은 입력을 모두 완료했는지 확인하는 구문입니다
