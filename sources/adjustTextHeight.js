@@ -6,8 +6,9 @@ function adjustTextareaHeight() {
 }
 
 // textarea의 내용이 변경될 때마다 높이를 조절합니다.
-document
-  .getElementById("dynamicTextarea")
-  .addEventListener("keydown", function () {
-    adjustTextareaHeight();
-  });
+// document
+//   .getElementById("dynamicTextarea")
+//   .addEventListener("keydown", function () {
+//     console.log("height detected");
+//     adjustTextareaHeight();
+//   });

@@ -7,6 +7,7 @@ function updateClass(element, removeClasses, addClass) {
 document
   .getElementById("dynamicTextarea")
   .addEventListener("input", function () {
+    adjustTextareaHeight();
     const spans = document.getElementById("quote").querySelectorAll(`span`);
     const textLength = spans.length;
     const textareaValue = this.value; // textarea의 값을 가져옴
