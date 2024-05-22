@@ -1,4 +1,5 @@
 let previousLength = 0;
+let count = 0;
 
 // Helper function to update classes
 function updateClass(element, removeClasses, addClass) {
@@ -58,7 +59,8 @@ function handleInput(event) {
     event.target.value = textareaValue.trim();
     event.target.value = "";
     previousLength = 0;
-    fetchRandomQuote();
+    count++;
+    fetchQuote(count);
     adjustTextareaHeight();
   } else {
     if (previousLength < currentLength && currentLength === 1) {
@@ -89,7 +91,8 @@ function handleKeydown(event) {
       event.target.value = textareaValue.trim();
       event.target.value = "";
       previousLength = 0;
-      fetchRandomQuote();
+      count++;
+      fetchQuote(count);
       adjustTextareaHeight();
     }
   }

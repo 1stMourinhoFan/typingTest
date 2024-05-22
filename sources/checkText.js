@@ -1,4 +1,8 @@
+import { fetchQuote } from "./fetchQuote.js";
+
 let previousLength = 0;
+let count = 0;
+fetchQuote(count);
 // Helper function to update classes
 function updateClass(element, removeClasses, addClass) {
   element.classList.remove(...removeClasses);
@@ -33,7 +37,8 @@ document
       this.value = textareaValue.trim();
       this.value = "";
       previousLength = 0;
-      fetchRandomQuote();
+      incrementCount();
+      fetchQuote(count);
       adjustTextareaHeight();
     }
     // 입력이 완료되지 않았을 경우에는 else문을 통해서 맞고 틀림 여부를 확인합니다
@@ -75,7 +80,8 @@ document
         this.value = textareaValue.trim();
         this.value = "";
         previousLength = 0;
-        fetchRandomQuote();
+        incrementCount();
+        fetchQuote(count);
         adjustTextareaHeight();
       }
     }
@@ -123,3 +129,19 @@ function checkValid(textareaValue, previousLength, currentLength) {
     // console.log(previousLength, currentLength);
   }
 }
+
+function incrementCount() {
+  count++;
+}
+
+function decrementCount() {
+  if (count > 0) {
+    count--;
+  }
+}
+
+function getCount() {
+  return count;
+}
+
+export { count, incrementCount, decrementCount, getCount };
