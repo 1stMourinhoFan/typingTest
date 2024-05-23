@@ -83,7 +83,7 @@ textarea.addEventListener("keydown", function (event) {
     return;
   }
 
-  console.log(event);
+  // console.log(event);
   const spans = document.getElementById("quote").querySelectorAll("span");
   const textLength = spans.length;
   const textareaValue = this.value;

@@ -15,10 +15,35 @@ function shuffleArray(array) {
 }
 
 // Function to fetch JSON data, shuffle it, and display it
+// async function fetchAndDisplayQuotes() {
+//   try {
+//     const response = await fetch("data/maxim_filtered.json");
+//     const data = await response.json();
+
+//     // Shuffle the array
+//     const shuffledData = shuffleArray(data);
+//     dataLength = shuffledData.length;
+//     return shuffledData;
+//   } catch (error) {
+//     console.error("Error fetching or processing data:", error);
+//   }
+// }
+
 async function fetchAndDisplayQuotes() {
   try {
     const response = await fetch("data/maxim_filtered.json");
-    const data = await response.json();
+
+    // Check if the response is OK (status 200-299)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Log the response to debug
+    const responseText = await response.text();
+    // console.log("Response Text:", responseText);
+
+    // Attempt to parse the response text as JSON
+    const data = JSON.parse(responseText);
 
     // Shuffle the array
     const shuffledData = shuffleArray(data);
