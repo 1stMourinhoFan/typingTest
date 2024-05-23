@@ -30,7 +30,7 @@ textarea.addEventListener("input", function (e) {
   }
   isInputEventProcessing = true;
   // console.log(e.isComposing);
-  console.log(e);
+  // console.log(e);
   adjustTextareaHeight();
   const spans = document.getElementById("quote").querySelectorAll(`span`);
   const textLength = spans.length;
@@ -101,7 +101,7 @@ textarea.addEventListener("keydown", function (event) {
       this.value = "";
       previousLength = 0;
       incrementCount();
-      console.log(getCount());
+      // console.log(getCount());
       fetchQuote(getCount());
       adjustTextareaHeight();
       incrementUserCount();
@@ -120,7 +120,7 @@ textarea.addEventListener("keydown", function (event) {
     this.value = "";
     previousLength = 0;
     incrementCount();
-    console.log(getCount());
+    // console.log(getCount());
     fetchQuote(getCount());
     adjustTextareaHeight();
     incrementUserCount();
@@ -138,7 +138,7 @@ textarea.addEventListener("keydown", function (event) {
       this.value = "";
       previousLength = 0;
       decrementCount();
-      console.log(getCount());
+      // console.log(getCount());
       fetchQuote(getCount());
       adjustTextareaHeight();
     }
@@ -151,7 +151,7 @@ textarea.addEventListener("keydown", function (event) {
       this.value = "";
       previousLength = 0;
       incrementCount();
-      console.log(getCount());
+      // console.log(getCount());
       fetchQuote(getCount());
       adjustTextareaHeight();
     }
