@@ -1,8 +1,10 @@
+import { WPM } from "./wpm";
+
 function updateProgressBar() {
-  var progressBar = document.getElementById("typing__bar");
-  var randomValue = Math.random() * 100; // 0에서 100 사이의 랜덤 값 생성
-  progressBar.style.width = randomValue + "%"; // 막대바의 길이를 업데이트
+  const progressBar = document.getElementById("typing__bar");
+  const percentage = Math.min((WPM / 800) * 100, 100); // 백분율을 100%로 제한
+  progressBar.style.width = percentage + "%"; // 막대바의 길이를 업데이트
 }
 
 // 일정 시간 간격으로 막대바를 업데이트합니다. (예: 1초마다)
-setInterval(updateProgressBar, 1000);
+setInterval(updateProgressBar, 500);

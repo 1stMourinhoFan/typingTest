@@ -1,6 +1,9 @@
 import { getCount } from "./checkText.js";
 import { fetchQuote } from "./fetchQuote.js";
+import { countUpdate } from "./countCheck.js";
+
 let shuffledData = [];
+let dataLength = 0;
 
 // Function to shuffle an array using Fisher-Yates algorithm
 function shuffleArray(array) {
@@ -19,6 +22,7 @@ async function fetchAndDisplayQuotes() {
 
     // Shuffle the array
     const shuffledData = shuffleArray(data);
+    dataLength = shuffledData.length;
     return shuffledData;
   } catch (error) {
     console.error("Error fetching or processing data:", error);
@@ -29,7 +33,8 @@ async function fetchAndDisplayQuotes() {
 document.addEventListener("DOMContentLoaded", async () => {
   shuffledData = await fetchAndDisplayQuotes();
   await fetchQuote(getCount());
+  await countUpdate(getCount());
 });
 
 // Export the function
-export { shuffledData };
+export { shuffledData, dataLength };

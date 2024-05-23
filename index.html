@@ -11,7 +11,7 @@
       <div class="typing__info">
         <div class="typing__title">typing-logo</div>
         <div class="typing__language">English / Korean</div>
-        <div class="typing__history">History</div>
+        <div class="typing__history"></div>
         <div class="typing__count">
           <button type="typing__button">Up</button>
           <div class="typing__countNum">5</div>
@@ -22,19 +22,19 @@
         </div>
         <div class="typing__status">
           <span class="typing__status-text">Speed</span>
-          <span class="typing__value">200</span>
+          <span id="typing__speed" class="typing__value">--</span>
         </div>
         <div class="typing__status">
           <span class="typing__status-text">Accuracy</span>
-          <span class="typing__value">86</span>
+          <span id="current__accuracy" class="typing__value">--</span>
         </div>
         <div class="typing__status">
           <span class="typing__status-text">Count</span>
-          <span id="current__count" class="typing__value">2</span>
+          <span id="current__count" class="typing__value"></span>
         </div>
       </div>
       <div class="typing__main">
-        <div class="typing__author" id="author">-명심보감-</div>
+        <div class="typing__author" id="author"></div>
         <div class="typing__quotes" id="quote"></div>
         <textarea
           id="dynamicTextarea"
@@ -48,15 +48,17 @@
           rows="1"
         ></textarea>
         <div id="typing__bar"></div>
-        <div class="typing__next">NEXT 동해물과 백두산이 마르고 닳도록</div>
+        <div id="typing__next" class="typing__next"></div>
       </div>
     </div>
   </body>
 
-  <script src="sources/updateBar.js"></script>
+  <!-- <script type="module" src="sources/updateBar.js"></script> -->
   <script src="sources/adjustTextHeight.js"></script>
   <script type="module" src="sources/getQuotes.js"></script>
   <script type="module" src="sources/fetchQuote.js"></script>
   <script type="module" src="sources/checkText.js"></script>
-  <!-- <script type="module" src="sources/countCheck.js"></script> -->
+  <script type="module" src="sources/wpm.js"></script>
+  <script type="module" src="sources/countCheck.js"></script>
+  <script type="module" src="sources/calAccuracy.js"></script>
 </html>

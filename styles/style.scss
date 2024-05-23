@@ -42,8 +42,17 @@ body {
     .typing__history {
       border: 1px solid black;
       border-radius: 5px;
-      padding: 12px 8px;
+      padding: 8px 8px;
       grid-column: span 4;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      gap: 1px;
+
+      .typing__hisInfo {
+        font-weight: bold;
+        font-size: 12px;
+      }
     }
 
     .typing__count {
@@ -92,18 +101,18 @@ body {
     .typing__author {
       font-weight: bold;
       font-size: small;
-      color: #87888a;
+      color: black;
       margin-bottom: 10px;
     }
 
     .typing__quotes {
+      font-size: 16px;
       font-weight: bold;
-      // display: table;
       padding: 0px;
     }
 
     .typing__none {
-      color: #87888a;
+      color: black;
     }
 
     .typing__error {
@@ -127,14 +136,15 @@ body {
     }
 
     #typing__bar {
-      width: 0;
+      width: 100%;
       min-height: 2px;
-      background-color: blue;
+      background-color: #d5d6d4;
       transition: width 0.3s ease; /* 애니메이션 효과를 추가합니다. */
       margin-bottom: 10px;
     }
 
     .typing__next {
+      font-size: 14px;
       font-weight: bold;
       color: #777878;
     }
