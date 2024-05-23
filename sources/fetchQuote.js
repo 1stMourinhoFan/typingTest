@@ -1,4 +1,3 @@
-import { getCount } from "./checkText.js";
 import { shuffledData } from "./getQuotes.js";
 
 async function fetchQuote(count) {

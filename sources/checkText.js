@@ -2,12 +2,12 @@ import { fetchQuote } from "./fetchQuote.js";
 
 let previousLength = 0;
 let count = 0;
-fetchQuote(count);
 // Helper function to update classes
 function updateClass(element, removeClasses, addClass) {
   element.classList.remove(...removeClasses);
   element.classList.add(addClass);
 }
+
 document
   .getElementById("dynamicTextarea")
   .addEventListener("input", function () {
@@ -38,7 +38,7 @@ document
       this.value = "";
       previousLength = 0;
       incrementCount();
-      fetchQuote(count);
+      fetchQuote(getCount());
       adjustTextareaHeight();
     }
     // 입력이 완료되지 않았을 경우에는 else문을 통해서 맞고 틀림 여부를 확인합니다
@@ -81,7 +81,7 @@ document
         this.value = "";
         previousLength = 0;
         incrementCount();
-        fetchQuote(count);
+        fetchQuote(getCount());
         adjustTextareaHeight();
       }
     }

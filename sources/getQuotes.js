@@ -1,3 +1,5 @@
+import { getCount } from "./checkText.js";
+import { fetchQuote } from "./fetchQuote.js";
 let shuffledData = [];
 
 // Function to shuffle an array using Fisher-Yates algorithm
@@ -24,7 +26,10 @@ async function fetchAndDisplayQuotes() {
 }
 
 // Call the function immediately to fetch data when the module is loaded
-shuffledData = await fetchAndDisplayQuotes();
+document.addEventListener("DOMContentLoaded", async () => {
+  shuffledData = await fetchAndDisplayQuotes();
+  await fetchQuote(getCount());
+});
 
 // Export the function
 export { shuffledData };
