@@ -17,3 +17,9 @@ document.addEventListener("keydown", function (event) {
     }
   }
 });
+
+function countUpdate(count) {
+  document.getElementById("current__count").innerText = count;
+}
+
+export { countUpdate };
