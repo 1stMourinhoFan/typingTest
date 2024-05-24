@@ -10,6 +10,7 @@ body {
 }
 
 .typing {
+  font-weight: bold;
   background-color: #f2f2f2;
   box-sizing: border-box;
   border: 2.5px solid black;
@@ -28,16 +29,17 @@ body {
       border-radius: 5px;
       padding: 12px 8px;
       grid-column: span 2;
+      grid-row: span 2;
     }
 
-    .typing__language {
-      border: 1px solid black;
-      border-radius: 5px;
+    // .typing__language {
+    //   border: 1px solid black;
+    //   border-radius: 5px;
 
-      padding: 12px 8px;
-      grid-column: span 2;
-      grid-area: 2 / 1 / 2 / 3;
-    }
+    //   padding: 12px 8px;
+    //   grid-column: span 2;
+    //   grid-area: 2 / 1 / 2 / 3;
+    // }
 
     .typing__history {
       border: 1px solid black;
@@ -52,6 +54,8 @@ body {
       .typing__hisInfo {
         font-weight: bold;
         font-size: 12px;
+        display: flex;
+        justify-content: flex-start;
       }
     }
 

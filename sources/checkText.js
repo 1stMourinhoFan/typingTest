@@ -94,17 +94,17 @@ textarea.addEventListener("keydown", function (event) {
 
     if (done) {
       checkValid(textareaValue, previousLength, currentLength);
+      incrementUserCount();
       calWpm();
       // calAccur(textLength);
       fetchResult();
       this.value = textareaValue.trim();
       this.value = "";
       previousLength = 0;
-      incrementCount();
       // console.log(getCount());
+      incrementCount();
       fetchQuote(getCount());
       adjustTextareaHeight();
-      incrementUserCount();
       countUpdate(user_count);
       if (startTime) {
         startTime = null;
@@ -113,6 +113,7 @@ textarea.addEventListener("keydown", function (event) {
   } else if (event.code === "Space" && done) {
     event.preventDefault();
     checkValid(textareaValue, previousLength, currentLength);
+    incrementUserCount();
     calWpm();
     // calAccur(textLength);
     fetchResult();
@@ -123,7 +124,6 @@ textarea.addEventListener("keydown", function (event) {
     // console.log(getCount());
     fetchQuote(getCount());
     adjustTextareaHeight();
-    incrementUserCount();
     countUpdate(user_count);
     if (startTime) {
       startTime = null;

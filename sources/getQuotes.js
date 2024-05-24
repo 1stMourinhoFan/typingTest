@@ -15,19 +15,21 @@ function shuffleArray(array) {
 }
 
 // Function to fetch JSON data, shuffle it, and display it
-// async function fetchAndDisplayQuotes() {
-//   try {
-//     const response = await fetch("data/maxim_filtered.json");
-//     const data = await response.json();
+async function fetchAndDisplayQuotes() {
+  try {
+    const response = await fetch(
+      "https://gist.githubusercontent.com/1stMourinhoFan/13f07e0b6a960e51c78fe40581638d27/raw/945f22256def2426fa3305b1c0af272c28b7d9a3/quotes.json"
+    );
+    const data = await response.json();
 
-//     // Shuffle the array
-//     const shuffledData = shuffleArray(data);
-//     dataLength = shuffledData.length;
-//     return shuffledData;
-//   } catch (error) {
-//     console.error("Error fetching or processing data:", error);
-//   }
-// }
+    // Shuffle the array
+    const shuffledData = shuffleArray(data);
+    dataLength = shuffledData.length;
+    return shuffledData;
+  } catch (error) {
+    console.error("Error fetching or processing data:", error);
+  }
+}
 
 // async function fetchAndDisplayQuotes() {
 //   try {
@@ -54,35 +56,35 @@ function shuffleArray(array) {
 //   }
 // }
 
-async function fetchAndDisplayQuotes() {
-  try {
-    const response = await fetch("data/maxim_filtered.json");
+// async function fetchAndDisplayQuotes() {
+//   try {
+//     const response = await fetch("data/maxim_filtered.json");
 
-    // Log the full response object for debugging
-    // console.log("Full Response:", response);
+//     // Log the full response object for debugging
+//     // console.log("Full Response:", response);
 
-    // Check if the response is OK (status 200-299)
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+//     // Check if the response is OK (status 200-299)
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    // Check content-type to ensure it's JSON
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new TypeError(`Expected JSON, but received ${contentType}`);
-    }
+//     // Check content-type to ensure it's JSON
+//     const contentType = response.headers.get("content-type");
+//     if (!contentType || !contentType.includes("application/json")) {
+//       throw new TypeError(`Expected JSON, but received ${contentType}`);
+//     }
 
-    // Parse the response as JSON
-    const data = await response.json();
+//     // Parse the response as JSON
+//     const data = await response.json();
 
-    // Shuffle the array
-    const shuffledData = shuffleArray(data);
-    dataLength = shuffledData.length;
-    return shuffledData;
-  } catch (error) {
-    console.error("Error fetching or processing data:", error);
-  }
-}
+//     // Shuffle the array
+//     const shuffledData = shuffleArray(data);
+//     dataLength = shuffledData.length;
+//     return shuffledData;
+//   } catch (error) {
+//     console.error("Error fetching or processing data:", error);
+//   }
+// }
 
 // Call the function immediately to fetch data when the module is loaded
 document.addEventListener("DOMContentLoaded", async () => {
