@@ -5,6 +5,7 @@ import { WPM, calWpm } from "./wpm.js";
 // import { calAccur } from "./calAccuracy.js";
 import { fetchResult } from "./fetchResult.js";
 import { dataLength } from "./getQuotes.js";
+import { adjustTextareaHeight } from "./adjustTextHeight.js";
 
 let totalKeyPress = 0;
 let previousLength = 0;

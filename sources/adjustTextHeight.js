@@ -5,10 +5,4 @@ function adjustTextareaHeight() {
   textarea.style.height = textarea.scrollHeight + "px"; // 실제로 계산된 높이를 적용합니다.
 }
 
-// textarea의 내용이 변경될 때마다 높이를 조절합니다.
-// document
-//   .getElementById("dynamicTextarea")
-//   .addEventListener("keydown", function () {
-//     console.log("height detected");
-//     adjustTextareaHeight();
-//   });
+export { adjustTextareaHeight };
