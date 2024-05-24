@@ -11,9 +11,7 @@ function fetchResult() {
   // Create the new div element with the specified content
   const newItem = document.createElement("div");
   newItem.className = "typing__hisInfo";
-  newItem.textContent = `${
-    historyContainer.children.length + 1
-  } WPM: ${WPM} | CPM: ${CPM} | ACC: ${accuracy}`;
+  newItem.textContent = `${getUserCount()} WPM: ${WPM} | CPM: ${CPM} | ACC: ${accuracy}`;
 
   // Check if the number of child elements exceeds 4
   if (historyContainer.children.length > 3) {
