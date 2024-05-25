@@ -14,7 +14,7 @@ body {
   background-color: #f2f2f2;
   box-sizing: border-box;
   border: 2.5px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
   max-width: 900px;
   grid-row-start: 2;
   display: grid;
@@ -25,25 +25,17 @@ body {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(2, 1fr);
     .typing__title {
-      border: 1px solid black;
-      border-radius: 5px;
+      outline: 1.25px solid black;
+      box-shadow: 0 0 0 1.2px black;
+      // border-radius: 3px;
       padding: 12px 8px;
       grid-column: span 2;
       grid-row: span 2;
     }
 
-    // .typing__language {
-    //   border: 1px solid black;
-    //   border-radius: 5px;
-
-    //   padding: 12px 8px;
-    //   grid-column: span 2;
-    //   grid-area: 2 / 1 / 2 / 3;
-    // }
-
     .typing__history {
-      border: 1px solid black;
-      border-radius: 5px;
+      outline: 1.25px solid black;
+      // border-radius: 3px;
       padding: 8px 8px;
       grid-column: span 4;
       display: flex;
@@ -60,8 +52,8 @@ body {
     }
 
     .typing__count {
-      border: 1px solid black;
-      border-radius: 5px;
+      outline: 1.25px solid black;
+      // border-radius: 3px;
       padding: 12px 8px;
       display: flex;
       justify-content: space-around;
@@ -71,16 +63,16 @@ body {
     }
 
     .typing__moreinfo {
-      border: 1px solid black;
-      border-radius: 5px;
+      outline: 1.25px solid black;
+      // border-radius: 3px;
       padding: 12px 8px;
       grid-row: span 4;
       grid-column: span 4;
     }
 
     .typing__status {
-      border: 1px solid black;
-      border-radius: 5px;
+      outline: 1.25px solid black;
+      // border-radius: 3px;
       padding: 12px 8px;
       grid-column: span 2;
       display: flex;
@@ -129,9 +121,10 @@ body {
     .typing__input {
       font-size: 16px;
       background-color: #f2f2f2;
+      color: #37474f;
       padding: 0px;
-      resize: none;
       font-weight: bold;
+      resize: none;
       border: none;
       outline: none;
       overflow-y: hidden; /* 스크롤바를 숨깁니다 */
@@ -141,7 +134,7 @@ body {
       width: 100%;
       min-height: 2px;
       background-color: #d5d6d4;
-      transition: width 0.3s ease; /* 애니메이션 효과를 추가합니다. */
+      // transition: width 0.3s ease;
       margin-bottom: 10px;
     }
 
@@ -157,16 +150,26 @@ body {
 @media (max-width: 768px) {
   body {
     justify-content: stretch;
+    grid-template-rows: 1fr 350px 1.5fr;
+    line-height: 1.2;
   }
 
   .typing {
-    grid-template-rows: 0.5fr 2fr;
+    grid-template-rows: 0.6fr 2fr;
 
     .typing__info {
       display: grid;
       grid-template-rows: repeat(1, 1fr);
       .typing__title {
         display: none;
+      }
+
+      .typing__history {
+        order: 2;
+      }
+
+      #typing__maxavg {
+        order: 1;
       }
     }
 
@@ -176,23 +179,24 @@ body {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 660px) {
   body {
-    justify-content: stretch;
+    grid-template-rows: 1fr 290px 1.5fr;
     min-width: 500px;
+    min-height: 290px;
   }
 
   .typing {
-    grid-template-rows: 0.5fr 2fr;
-
+    grid-template-rows: 0.7fr 2fr;
     .typing__info {
-      display: grid;
-      grid-template-rows: repeat(1, 1fr);
       .typing__history {
         grid-column: span 6;
       }
-      .typing__title {
-        display: none;
+
+      .typing__status {
+        .typing__value {
+          align-self: flex-start;
+        }
       }
     }
 
@@ -200,8 +204,16 @@ body {
       display: none;
     }
 
-    .typing__moreinfo {
-      display: none;
+    .typing__main {
+      .typing__author {
+        display: none;
+      }
+
+      .typing__next {
+        display: none;
+      }
     }
   }
 }
+
+// 지금 저 상황이 500 x 324 니까 높이가 안되서 or 구문으로 들어간 상황
