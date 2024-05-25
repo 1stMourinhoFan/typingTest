@@ -16,8 +16,9 @@ function calWpm() {
     const totalKP = gettotalKeyPress();
     const timeNow = new Date() / 1000;
     const timePerMin = (timeNow - getStartTime()) / 60;
-    WPM = Math.round((totalKP / 5 / timePerMin) * accurWeight);
-    CPM = Math.round(WPM * 5);
+    const real_WPM = (totalKP / 5 / timePerMin) * accurWeight;
+    WPM = Math.round(real_WPM);
+    CPM = Math.round(real_WPM * 5);
     // console.log(totalKP, timePerMin, WPM);
   } else {
     WPM = 0;
