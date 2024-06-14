@@ -2,7 +2,6 @@ import { fetchQuote } from "./fetchQuote.js";
 import { countUpdate } from "./countCheck.js";
 import { disassembleHangul } from "es-hangul";
 import { WPM, calWpm } from "./wpm.js";
-// import { calAccur } from "./calAccuracy.js";
 import { fetchResult } from "./fetchResult.js";
 import { dataLength } from "./getQuotes.js";
 import { adjustTextareaHeight } from "./adjustTextHeight.js";

@@ -1,4 +1,3 @@
-// import { accuracy } from "./calAccuracy";
 import { getUserCount } from "./checkText";
 import { CPM, WPM, accuracy } from "./wpm";
 let maxCPM = 0;
